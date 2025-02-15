@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Users</title>
+</head>
+<body>
+    {% include 'header.html' %}
+
+    <h1>Registered Users</h1>
+
+    <ul>
+        {% for user in users %}
+            <li>
+                <a href="{{ url_for('user_pics', user_id=user.id) }}">{{ user.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <br>
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+</html>
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>All Users</title>-->
+<!--    <style>-->
+<!--        table {-->
+<!--            width: 100%;-->
+<!--            border-collapse: collapse;-->
+<!--        }-->
+<!--        table, th, td {-->
+<!--            border: 1px solid black;-->
+<!--        }-->
+<!--        th, td {-->
+<!--            padding: 8px;-->
+<!--            text-align: left;-->
+<!--        }-->
+<!--        th {-->
+<!--            background-color: #f2f2f2;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>All Registered Users</h1>-->
+<!--    <table>-->
+<!--        <thead>-->
+<!--            <tr>-->
+<!--                <th>ID</th>-->
+<!--                <th>Email</th>-->
+<!--                <th>Name</th>-->
+<!--            </tr>-->
+<!--        </thead>-->
+<!--        <tbody>-->
+<!--            {% for user in users %}-->
+<!--            <tr>-->
+<!--                <td>{{ user.id }}</td>-->
+<!--                <td>{{ user.email }}</td>-->
+<!--                <td>{{ user.name }}</td>-->
+<!--            </tr>-->
+<!--            {% endfor %}-->
+<!--        </tbody>-->
+<!--    </table>-->
+
+<!--    <a href="{{ url_for('register') }}">Back to Registration</a>-->
+<!--</body>-->
+<!--</html>-->

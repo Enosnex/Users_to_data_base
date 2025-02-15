@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+    <h1>Log In</h1>
+
+    <!-- Flash Messages for Errors/Notifications -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <!-- Login Form -->
+    <form method="POST">
+        {{ form.hidden_tag() }}  <!-- CSRF Token -->
+        <p>{{ form.email.label }} {{ form.email }}</p>
+        <p>{{ form.password.label }} {{ form.password }}</p>
+        <p>{{ form.submit }}</p>
+    </form>
+
+    <p>Don't have an account? <a href="{{ url_for('register') }}">Sign Up</a></p>
+</body>
+</html>

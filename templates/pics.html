@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Images</title>
+</head>
+<body>
+    {% include 'header.html' %}
+
+    <h1>All Uploaded Images</h1>
+
+    <!-- Loop through all pics and display them -->
+    {% if pics %}
+        <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+            {% for pic in pics %}
+                <div>
+                    <img src="{{ pic.pic_url }}" alt="Uploaded Image" style="width: 200px; height: auto; border: 1px solid #ccc; padding: 5px;">
+                    <a href="#">{{pic.author.name}}</a>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No images uploaded yet.</p>
+    {% endif %}
+
+    <br>
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+</html>

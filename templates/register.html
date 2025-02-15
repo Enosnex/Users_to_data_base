@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>REGISTER</title>
+</head>
+<body>
+    <h1>RESGISTER NEW USER</h1>
+    <form method="POST">
+    {{ form.hidden_tag() }}  <!-- This includes the CSRF token -->
+    {{ form.email.label }} {{ form.email }}
+    {{ form.password.label }} {{ form.password }}
+    {{ form.name.label }} {{ form.name }}
+    {{ form.submit }}
+    </form>
+    <a href="{{ url_for('show_all') }}">Show all users</a>
+</body>
+</html>

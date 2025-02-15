@@ -1,0 +1,19 @@
+</head>
+<body>
+    {% include 'header.html' %}
+
+    <h1>Welcome to | Post a Pic Website |</h1>
+
+    <nav>
+        <a href="{{ url_for('login') }}">Log In</a> |
+        <a href="{{ url_for('register') }}">Sign Up</a> |
+
+        {% if current_user.is_authenticated %}
+            <a href="{{ url_for('pic_url') }}">Post a Picture</a> |
+            <a href="{{ url_for('show_all') }}">Show All Users</a> |
+            <a href="{{ url_for('all_pics') }}">Show All Pics</a> |
+            <a href="{{ url_for('logout') }}">Log Out</a>
+        {% endif %}
+    </nav>
+</body>
+</html>
